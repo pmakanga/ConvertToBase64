@@ -17,6 +17,7 @@
             e.preventDefault()
             //File encoding code goes here
             var file = input.files[0],
+            
             reader = new FileReader()
             reader.onloadend = function() {
                 base64 = reader.result.replace(/^data:.+;base64,/, '');
