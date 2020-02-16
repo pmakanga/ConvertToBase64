@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload</title>
+</head>
+<body>
+    <h1>File Upload Example</h1>
+    <input type="file">
+    <button type="button" id="submit">Submit</button>
+    <script>
+      var input =document.querySelector('input[type=file]');
+      var base66 = '';
+      $('#submit').click(function(){
+        var file = input.files[0],
+        reader = new FileReader()
+
+        reader.onloadend = function() {
+            base66 = reader.result.replace(/^data:.+;base64,/, '');
+             // console.log(b64);
+             console.log(base66);
+        };
+        reader.readAsDataURL(file);
+       
+
+    
+      });
+    </script>
+</body>
+</html>
